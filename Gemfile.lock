@@ -380,17 +380,17 @@ GEM
     ruby-vips (2.3.0)
       ffi (~> 1.12)
       logger
-    ruby_llm (1.16.0)
+    ruby_llm (1.8.2)
       base64
       event_stream_parser (~> 1)
       faraday (>= 1.10.0)
       faraday-multipart (>= 1)
       faraday-net_http (>= 1)
       faraday-retry (>= 1)
-      marcel (~> 1)
-      ruby_llm-schema (~> 0)
+      marcel (~> 1.0)
       zeitwerk (~> 2)
-    ruby_llm-schema (0.4.0)
+    ruby_llm-schema (1.0.0)
+      schematist (~> 1.0)
     rubyzip (3.5.0)
     sassc (2.4.0)
       ffi (~> 1.9)
@@ -400,6 +400,7 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    schematist (1.1.0)
     securerandom (0.4.1)
     selenium-webdriver (4.47.0)
       base64 (~> 0.2)
@@ -512,7 +513,7 @@ DEPENDENCIES
   rails (~> 8.1.3, >= 8.1.3.1)
   rubocop-rails-omakase
   ruby_llm
-  ruby_llm-schema (~> 0.4)
+  ruby_llm-schema (~> 1.0)
   sassc-rails
   selenium-webdriver
   simple_form!
@@ -672,11 +673,12 @@ CHECKSUMS
   rubocop-rails-omakase (1.1.0) sha256=2af73ac8ee5852de2919abbd2618af9c15c19b512c4cfc1f9a5d3b6ef009109d
   ruby-progressbar (1.13.0) sha256=80fc9c47a9b640d6834e0dc7b3c94c9df37f08cb072b7761e4a71e22cff29b33
   ruby-vips (2.3.0) sha256=e685ec02c13969912debbd98019e50492e12989282da5f37d05f5471442f5374
-  ruby_llm (1.16.0) sha256=26bd5310cf2ce55f74a60f8aae0b0d0327b586ff4532c84828103c3b2b905a18
-  ruby_llm-schema (0.4.0) sha256=e930f5a5316f9301bff3fb7fe572e44727d05bb8e50621001bbb49a47d63b8da
+  ruby_llm (1.8.2) sha256=5f3972e2aab41c64791fd83492f0c85fb449efc9574c3c8d8fdfb2d009f46f90
+  ruby_llm-schema (1.0.0) sha256=4cee959e71dcdf95476b1e5dc18b16c16d1fa5e79ed1df2157533a54d13de548
   rubyzip (3.5.0) sha256=f77c49d737a849b662f6ca4de473f31b4ecd8288f1c9f901a5c820641f0f8d7c
   sassc (2.4.0) sha256=4c60a2b0a3b36685c83b80d5789401c2f678c1652e3288315a1551d811d9f83e
   sassc-rails (2.1.2) sha256=5f4fdf3881fc9bdc8e856ffbd9850d70a2878866feae8114aa45996179952db5
+  schematist (1.1.0) sha256=905d8f0286830926e77e0d631bee325ee741c4b99640bc99735593b40ba73e7b
   securerandom (0.4.1) sha256=cc5193d414a4341b6e225f0cb4446aceca8e50d5e1888743fac16987638ea0b1
   selenium-webdriver (4.47.0) sha256=67f915b8223d2133bbaa13e92fd98854175394f086e2036a9eff4f5561fd69e4
   simple_form (5.4.1)

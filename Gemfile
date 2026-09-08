@@ -77,7 +77,7 @@ end
 gem "pundit"
 gem "cloudinary"
 gem "ruby_llm"
-gem "ruby_llm-schema", "~> 0.4"
+gem "ruby_llm-schema", "~> 1.0"
 gem "jwt"
 gem "rack-cors"
 gem 'docx'
