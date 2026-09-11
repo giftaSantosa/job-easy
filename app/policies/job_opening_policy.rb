@@ -8,12 +8,11 @@ class JobOpeningPolicy < ApplicationPolicy
   class Scope < ApplicationPolicy::Scope
     # NOTE: Be explicit about which records you allow access to!
     def resolve
-      scope.ordered
+      scope.where(user_id: nil).ordered
     end
   end
 
   def show?
-    true # if need it tochange can put to only for user who loged in. I had to
-    # check if it was working.
+    record.user_id.nil? || record.user_id == user&.id
   end
 end
