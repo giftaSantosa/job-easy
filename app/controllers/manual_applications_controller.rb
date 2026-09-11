@@ -6,7 +6,7 @@ class ManualApplicationsController < ApplicationController
 
   def create
     authorize JobApplication, :create?
-    company = Company.new(name: manual_applications_params[:company_name])
+    company = Company.find_or_initialize_by(name: manual_applications_params[:company_name])
     job_opening = JobOpening.new(
       title: manual_applications_params[:title],
       job_url: manual_applications_params[:job_url],
