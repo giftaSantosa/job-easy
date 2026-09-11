@@ -40,6 +40,31 @@
   text-transform: uppercase;
 }
 
+.applications-toolbar {
+  display: flex;
+  max-width: 1530px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 auto 16px;
+
+  .eyebrow { margin: 0 0 0 12px; }
+
+  .job-show-button {
+    min-height: 38px;
+    gap: 6px;
+    padding: 8px 14px;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+  }
+}
+
 .applications-header h1 {
   margin: 0 0 8px;
   font-size: 2.5rem;

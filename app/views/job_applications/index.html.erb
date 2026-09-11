@@ -1,5 +1,11 @@
 <main class="applications-page">
-    <p class="eyebrow">Application tracker</p>
+    <div class="applications-toolbar">
+      <p class="eyebrow">Application tracker</p>
+      <%= link_to new_manual_application_path, class: "btn recommend-btn" do %>
+        <i class="fa-solid fa-plus"></i>
+        <span> New Application</span>
+      <% end %>
+    </div>
     <section class="applications-board"
          aria-label="Applications grouped by status"
          data-controller="application-board">
