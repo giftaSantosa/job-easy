@@ -54,4 +54,6 @@ Rails.application.routes.draw do
     get "resumes/callback"
     post "resumes/:id/callback", to: "resumes#callback", as: :resume_callback
   end
+
+  resources :manual_applications, only: [:new, :create]
 end

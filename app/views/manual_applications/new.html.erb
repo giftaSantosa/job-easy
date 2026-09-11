@@ -1,0 +1,56 @@
+<% content_for :title, "Add application | JobEasy" %>
+
+<%= render "shared/flashes" %>
+
+<div class="job-show-page">
+  <%= link_to job_applications_path, class: "page-back-link", aria: { label: "Back to applications" } do %>
+    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m15 18-6-6 6-6"/><path d="M9 12h10"/></svg>
+    <span>Back to applications</span>
+  <% end %>
+
+  <%= simple_form_for :manual_application, url: manual_applications_path do |f| %>
+    <div class="job-show-layout">
+      <main class="job-show-main">
+        <header class="job-show-main__header">
+
+
+          <div class="job-show-main__heading">
+            <div class="job-show-main__title-row">
+              <h2>Add a new application</h2>
+            </div>
+            <p>Track a job you found outside JobEasy.</p>
+          </div>
+        </header>
+
+        <section class="job-show-description">
+          <h2>Job information</h2>
+          <%= f.input :company_name, label: "Company name", placeholder: "e.g. Mercari" %>
+          <%= f.input :title, label: "Job title", placeholder: "e.g. Backend Engineer" %>
+          <%= f.input :job_url, as: :url, label: "Job posting URL", required: false, placeholder: "https://" %>
+          <%= f.input :content, as: :text, label: "Job description", required: false,
+                                placeholder: "Paste the job description here",
+                                input_html: { rows: 12 } %>
+        </section>
+      </main>
+
+      <aside class="job-show-sidebar">
+        <section class="job-details-card">
+          <header>
+            <p>Overview</p>
+            <h2>Job details</h2>
+          </header>
+
+          <div class="pt-3">
+            <%= f.input :deadline, as: :date, html5: true, required: false %>
+            <%= f.input :salary, required: false, placeholder: "e.g. ¥6M – ¥8M" %>
+          </div>
+        </section>
+
+        <div class="job-show-actions">
+          <%= f.submit "Save application", class: "job-show-button job-show-button--primary" %>
+          <%= link_to "Cancel", job_applications_path, class: "job-show-button job-show-button--secondary" %>
+        </div>
+      </aside>
+    </div>
+  <% end %>
+</div>
