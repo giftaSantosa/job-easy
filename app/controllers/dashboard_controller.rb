@@ -26,7 +26,7 @@ class DashboardController < ApplicationController
                     .where.not(id: applied_job_ids)
                     .includes(:company)
                     .order(Arel.sql("deadline IS NULL, deadline ASC"), created_at: :desc)
-                    .where(source: "JapanDev")
+                    .where(source: "Japandev")
                     .limit(4)
   end
 end
