@@ -31,13 +31,13 @@ class ScrapeCfnJob < ApplicationJob
       jsondata.dig('data', 'appeal')
     end
 
-    jobs = []
-
     (1..12).each do |page|
-      url = "https://careerforum.net/api/public/companies?eventId=-1&jobTitleCategoryList=101&industryCategoryList=3&pageNum=#{page}&pageSize=20"
+      # url = "https://careerforum.net/api/public/companies?eventId=-1&jobTitleCategoryList=101&industryCategoryList=3&pageNum=#{page}&pageSize=20"
+      url = "https://careerforum.net/api/public/companies?jobTitleCategoryList=101&industryCategoryList=3&pageNum=#{page}&pageSize=20"
       jsondata = fetch_json(url)
 
       jsondata.dig('data', 'companyList').each do |job|
+        jobs = []
         company_name = job['dispCompNameEn']
         logo_string = job['logoUrl'].split('?', 2).first
         # industry_name = job['businessContent']
@@ -68,8 +68,12 @@ class ScrapeCfnJob < ApplicationJob
           company.update(
             description: data[:company_info]
           )
-          logo = URI.parse(data[:logo_link]).open
-          company.logo.attach(io: logo, filename: "logo.png", content_type: "image/png") unless company.logo.attached?
+          begin
+            logo = URI.parse(data[:logo_link]).open
+            company.logo.attach(io: logo, filename: "logo.png", content_type: "image/png") unless company.logo.attached?
+          rescue StandardError
+            # skip logo if it cannot be opened
+          end
 
           job_opening = JobOpening.find_or_create_by(title: data[:job_name])
           job_opening.update(
